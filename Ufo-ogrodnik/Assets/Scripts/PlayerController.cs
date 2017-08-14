@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public Object drop;
+    public GameObject drop;
+    //public GameObject flowerBed;
     private Rigidbody rigidBodyPlayer;
+    private List<GameObject> drops;
 
     void Start()
     {
         rigidBodyPlayer = GetComponent<Rigidbody>();
         rigidBodyPlayer.useGravity = false;
+        drops = new List<GameObject>();
     }
 
     void FixedUpdate()
@@ -21,16 +24,35 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rigidBodyPlayer.AddForce(movement * speed);
-        transform.Rotate(new Vector3(0,0,200)* Time.deltaTime);
+        this.rigidBodyPlayer.AddForce(movement * speed);
+        transform.Rotate(new Vector3(0, 0, 200) * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             var ObjectSpawnPosition = this.transform.position; /*rigidBodyPlayer.transform.position + (rigidBodyPlayer.transform.forward /** distance*/;
 
-            Instantiate(drop, ObjectSpawnPosition, Quaternion.identity);
-
+            this.drops.Add(Instantiate(drop, ObjectSpawnPosition, Quaternion.identity));
         }
 
+        if (this.drops.Count > 0)
+        {
+            this.DropCollider();
+        }           
+    }
+
+    private void DropCollider()
+    {
+        for (int i = this.drops.Count ; i != 0; i--)
+        {
+            if (this.drops[i-1].transform.position.y /* - flowerBed.transform.position.y*/ < 0)
+            {
+                var tempDropHandle = this.drops[i-1];
+                this.drops.Remove(this.drops[i-1]);
+                if (tempDropHandle != null)
+                {
+                    Destroy(tempDropHandle);
+                }                
+            }
+        }         
     }
 }

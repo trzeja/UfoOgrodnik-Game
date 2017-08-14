@@ -162,6 +162,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53e95e3b08f9cb940aa2026102c543d0, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &267035251 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 53e95e3b08f9cb940aa2026102c543d0, type: 3}
+  m_PrefabInternal: {fileID: 193103053}
 --- !u!1001 &750510130
 Prefab:
   m_ObjectHideFlags: 0
@@ -229,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   drop: {fileID: 1621594308}
+  flowerBed: {fileID: 267035251}
 --- !u!54 &769671739
 Rigidbody:
   m_ObjectHideFlags: 0
