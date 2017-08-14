@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-
-    private Rigidbody rb;
+    public Object drop;
+    private Rigidbody rigidBodyPlayer;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.useGravity = false;
+        rigidBodyPlayer = GetComponent<Rigidbody>();
+        rigidBodyPlayer.useGravity = false;
     }
 
     void FixedUpdate()
@@ -21,8 +21,16 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * speed);
+        rigidBodyPlayer.AddForce(movement * speed);
         transform.Rotate(new Vector3(0,0,200)* Time.deltaTime);
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            var ObjectSpawnPosition = this.transform.position; /*rigidBodyPlayer.transform.position + (rigidBodyPlayer.transform.forward /** distance*/;
+
+            Instantiate(drop, ObjectSpawnPosition, Quaternion.identity);
+
+        }
+
     }
 }
