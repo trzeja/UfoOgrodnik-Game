@@ -29,9 +29,26 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            var ObjectSpawnPosition = this.transform.position; /*rigidBodyPlayer.transform.position + (rigidBodyPlayer.transform.forward /** distance*/;
+            for (int i = 0; i < 50; i++)
+            {
+                Vector3 offset = new Vector3(Random.Range(-5, 5)/10f, Random.Range(-5, 5) / 10f, Random.Range(-5, 5) / 10f);
+                
+                var ObjectSpawnPosition = this.transform.position + offset;
+                var newDrop = Instantiate(drop, ObjectSpawnPosition, Quaternion.identity);                
+                this.drops.Add(newDrop);
+            }            
+        }
 
-            this.drops.Add(Instantiate(drop, ObjectSpawnPosition, Quaternion.identity));
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            for (int i = 0; i < 500; i++)
+            {
+                Vector3 offset = new Vector3(Random.Range(-10, 10), Random.Range(-10, 10), Random.Range(-10, 10));
+
+                var ObjectSpawnPosition = this.transform.position + offset;
+                var newDrop = Instantiate(drop, ObjectSpawnPosition, Quaternion.identity);
+                this.drops.Add(newDrop);
+            }
         }
 
         if (this.drops.Count > 0)

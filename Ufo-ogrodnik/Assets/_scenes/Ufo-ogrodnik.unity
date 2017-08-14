@@ -162,10 +162,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53e95e3b08f9cb940aa2026102c543d0, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &267035251 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 53e95e3b08f9cb940aa2026102c543d0, type: 3}
-  m_PrefabInternal: {fileID: 193103053}
 --- !u!1001 &750510130
 Prefab:
   m_ObjectHideFlags: 0
@@ -233,7 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   drop: {fileID: 1621594308}
-  flowerBed: {fileID: 267035251}
 --- !u!54 &769671739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -501,6 +496,38 @@ Prefab:
     - target: {fileID: 4211304546174708, guid: 8b78425304e9ad546ba3d9a32761169f, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54213829857189082, guid: 8b78425304e9ad546ba3d9a32761169f,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54213829857189082, guid: 8b78425304e9ad546ba3d9a32761169f,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211304546174708, guid: 8b78425304e9ad546ba3d9a32761169f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211304546174708, guid: 8b78425304e9ad546ba3d9a32761169f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4211304546174708, guid: 8b78425304e9ad546ba3d9a32761169f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54213829857189082, guid: 8b78425304e9ad546ba3d9a32761169f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 135106217288063078, guid: 8b78425304e9ad546ba3d9a32761169f,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b78425304e9ad546ba3d9a32761169f, type: 2}
