@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 6a6e7affa32b9a840a1049bb748690f0
-timeCreated: 1501944573
+timeCreated: 1503123045
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - drop: {instanceID: 0}
+  - flowerBed: {fileID: 100000, guid: bca69882773900f4db0ef5622555a58a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

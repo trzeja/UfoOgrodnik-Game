@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657958, g: 0.49641377, b: 0.5748177, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   drop: {fileID: 549345481}
+  flowerBed: {fileID: 812636766}
 --- !u!54 &769671739
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -213,6 +214,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &812636766 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: bca69882773900f4db0ef5622555a58a, type: 3}
+  m_PrefabInternal: {fileID: 1337149819}
+--- !u!114 &812636769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812636766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bd628d71484cb54b804e72dd5b4dfc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowerBed: {fileID: 812636766}
+  ufo: {fileID: 769671737}
 --- !u!1 &1106108236
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +402,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bca69882773900f4db0ef5622555a58a, type: 3}
+      propertyPath: m_Name
+      value: Flower bed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bca69882773900f4db0ef5622555a58a, type: 3}
   m_IsPrefabParent: 0
@@ -450,13 +472,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927429043}
-  m_LocalRotation: {x: 0.36599812, y: 0.45315394, z: -0.2113091, w: 0.78488564}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.8, z: 9.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: 60, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &2036376111
 Prefab:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public GameObject drop;
-    //public GameObject flowerBed;
+    public GameObject flowerBed;
     private Rigidbody rigidBodyPlayer;
     private List<GameObject> drops;
 
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
         rigidBodyPlayer = GetComponent<Rigidbody>();
         rigidBodyPlayer.useGravity = false;
         drops = new List<GameObject>();
+        //flowerBeds = new List<GameObject>();
     }
 
     void FixedUpdate()
