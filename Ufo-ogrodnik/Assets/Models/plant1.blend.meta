@@ -20,6 +20,7 @@ ModelImporter:
     100024: pods__boczna_R
     100026: pods__wierzcholka
     100028: podstawa
+    100030: plat
     400000: lodyga
     400002: //RootNode
     400004: Platek_L_L
@@ -35,6 +36,7 @@ ModelImporter:
     400024: pods__boczna_R
     400026: pods__wierzcholka
     400028: podstawa
+    400030: plat
     2300000: lodyga
     2300002: Platek_L_L
     2300004: Platek_L_R
@@ -49,6 +51,7 @@ ModelImporter:
     2300022: pods__boczna_R
     2300024: pods__wierzcholka
     2300026: podstawa
+    2300028: plat
     3300000: lodyga
     3300002: Platek_L_L
     3300004: Platek_L_R
@@ -63,6 +66,7 @@ ModelImporter:
     3300022: pods__boczna_R
     3300024: pods__wierzcholka
     3300026: podstawa
+    3300028: plat
     4300000: Platek_S_S
     4300002: pods__wierzcholka
     4300004: lodyga
@@ -77,6 +81,7 @@ ModelImporter:
     4300022: Platek_L_S
     4300024: Platek_L_L
     4300026: Platek_L_R
+    4300028: plat
     7400000: Default Take
     9500000: //RootNode
   materials:
