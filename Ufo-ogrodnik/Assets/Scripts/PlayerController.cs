@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         HandleSpecialKeys();
         UpdateShader();
 
-        scale += 0.001f;
+        scale += 0.0001f;
 
         plant.transform.localScale = new Vector3(scale, scale, scale);
 
