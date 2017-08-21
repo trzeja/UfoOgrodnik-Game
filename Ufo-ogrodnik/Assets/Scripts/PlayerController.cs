@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public GameObject drop;
+    public GameObject plant;
     private Rigidbody rigidBodyPlayer;
     private List<GameObject> drops;
 
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private GameObject currentPlane;
     private Queue<GameObject> pouredPlanes;
     //private GameObject pouredPlane;
+    private float scale;
 
     void Start()
     {
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         {
             childrenPlanes.Add(tran.gameObject);
         }
+
+        scale = 0.1f;
     }
 
     void FixedUpdate()
@@ -43,6 +47,10 @@ public class PlayerController : MonoBehaviour
         Rotate();
         HandleSpecialKeys();
         UpdateShader();
+
+        scale += 0.001f;
+
+        plant.transform.localScale = new Vector3(scale, scale, scale);
 
         if (this.drops.Count > 0)
         {
