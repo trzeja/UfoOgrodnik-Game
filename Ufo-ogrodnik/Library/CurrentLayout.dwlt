@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 495}
   m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
-  controlID: 2561
+  controlID: 4832
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -131,10 +131,10 @@ MonoBehaviour:
     y: 0
     width: 653
     height: 767
-  m_MinSize: {x: 202, y: 442}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 202, y: 421}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
-  controlID: 2562
+  controlID: 4756
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 495}
   m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
-  controlID: 2450
+  controlID: 4833
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -392,9 +392,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -6.0263243, y: 5.301317, z: 7.4734077}
+    m_Target: {x: 0.7355112, y: 10.455031, z: 3.441337}
     speed: 2
-    m_Value: {x: -6.0263243, y: 5.301317, z: 7.4734077}
+    m_Value: {x: 0.7355112, y: 10.455031, z: 3.441337}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -417,17 +417,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.009152631, y: 0.7206969, z: -0.69312453, w: 0.009516397}
+    m_Target: {x: -0.2861689, y: 0.67466605, z: -0.32216465, w: -0.5992855}
     speed: 2
-    m_Value: {x: 0.009152631, y: 0.7206969, z: -0.69312453, w: 0.009516397}
+    m_Value: {x: -0.2861689, y: 0.67466605, z: -0.32216465, w: -0.5992854}
   m_Size:
-    m_Target: 39.31912
+    m_Target: 3.0751612
     speed: 2
-    m_Value: 39.31912
+    m_Value: 3.0751612
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -462,8 +462,8 @@ MonoBehaviour:
     height: 410
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
+    m_SelectedIDs: 1a2a0000
+    m_LastClickedID: 10778
     m_ExpandedIDs: d6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -524,18 +524,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Models
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Models
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\trzej_000\Documents\GitHub\UfoOgrodnik-Game\Ufo-ogrodnik
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ae280000
-    m_LastClickedID: 10414
+    m_SelectedIDs: 9a260000
+    m_LastClickedID: 9882
     m_ExpandedIDs: 00000000c0240000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float ufoSpeed;
+    public float growthSpeed;
     public GameObject drop;
     public GameObject plant;
     private Rigidbody rigidBodyPlayer;
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
         }
 
         scale = 0.1f;
+        //growthSpeed = 0.0001f;
+        growthSpeed = 0.001f;
     }
 
     void FixedUpdate()
@@ -47,10 +50,7 @@ public class PlayerController : MonoBehaviour
         Rotate();
         HandleSpecialKeys();
         UpdateShader();
-
-        scale += 0.0001f;
-
-        plant.transform.localScale = new Vector3(scale, scale, scale);
+        EnlargePlants();
 
         if (this.drops.Count > 0)
         {
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        this.rigidBodyPlayer.AddForce(movement * speed);
+        this.rigidBodyPlayer.AddForce(movement * ufoSpeed);
     }
 
     private void Rotate()
@@ -87,6 +87,13 @@ public class PlayerController : MonoBehaviour
                 plane.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
             }
         }
+    }
+
+    private void EnlargePlants()
+    {
+        scale += growthSpeed;
+
+        plant.transform.localScale = new Vector3(scale, scale, scale);
     }
 
     private float GetGameObjectsXZDistance(GameObject a, GameObject b)
