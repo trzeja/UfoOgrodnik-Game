@@ -5,9 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float ufoSpeed;
-    public float growthSpeed;
+
     public GameObject drop;
-    public GameObject plant;
+
+    public GameObject plant1;
+    public GameObject plant2;
+    public GameObject plant3;
+
     private Rigidbody rigidBodyPlayer;
     private List<GameObject> drops;
 
@@ -20,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Queue<GameObject> pouredPlanes;
     //private GameObject pouredPlane;
     private float scale;
+    private float growthSpeed;
 
     void Start()
     {
@@ -32,7 +37,7 @@ public class PlayerController : MonoBehaviour
         pouredPlanes = new Queue<GameObject>();
         //pouredPlane = null;
 
-        ufoRenderer = this.gameObject.GetComponent<Renderer>();
+        //ufoRenderer = this.gameObject.GetComponent<Renderer>();
         childrenPlanes = new List<GameObject>();
         foreach (Transform tran in flowerBed.transform)
         {
@@ -50,7 +55,7 @@ public class PlayerController : MonoBehaviour
         Rotate();
         HandleSpecialKeys();
         UpdateShader();
-        EnlargePlants();
+        ResizePlants();
 
         if (this.drops.Count > 0)
         {
@@ -84,16 +89,30 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                plane.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                //if (plane.GetComponent<Renderer>() != null)
+                //{
+                    plane.GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+                //}
             }
         }
     }
 
-    private void EnlargePlants()
+    private void ResizePlants()
     {
         scale += growthSpeed;
 
-        plant.transform.localScale = new Vector3(scale, scale, scale);
+        if (scale < 0.25f)
+        {          
+            plant1.transform.localScale = new Vector3(scale, scale, scale);
+        }
+
+        if (scale < 0.75f)
+        {
+            plant2.transform.localScale = new Vector3(scale / 3f, scale / 3f, scale / 3f);
+        }
+
+        var pulse = Mathf.Abs(Mathf.Sin(scale *3 )) / 5f;
+        plant3.transform.localScale = new Vector3(pulse, pulse, pulse);
     }
 
     private float GetGameObjectsXZDistance(GameObject a, GameObject b)
@@ -117,10 +136,10 @@ public class PlayerController : MonoBehaviour
                 this.drops.Add(newDrop);
             }
 
-            if(currentPlane != null)
+            if (currentPlane != null)
             {
                 pouredPlanes.Enqueue(currentPlane);
-                Invoke("GreenUpPlane", 1);//this will happen after x seconds   
+                Invoke("GreenUpPlane", 1.3f);//this will happen after x seconds   
 
             }
 
@@ -167,12 +186,12 @@ public class PlayerController : MonoBehaviour
         var prevColor = planeMaterial.color;
 
         if (prevColor.g < 255f && prevColor.r > 0f && prevColor.b > 0f)
-        {            
+        {
             var newColor = new Color(prevColor.r - 0.05f, prevColor.b - 0.05f, prevColor.g + 0.2f);
 
             planeMaterial.SetColor("_Color", newColor);
         }
-        
+
         //material.color = newColor(255f, 255f, 255f, 1);
         //pouredPlanes.Dequeue().SetActive(false);       
     }
