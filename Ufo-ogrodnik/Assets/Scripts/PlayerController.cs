@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> childrenPlanes;
     private Renderer ufoRenderer;
     private GameObject currentPlane;
-    private Queue<GameObject> pouredPlanes;
+    private Queue<GameObject> planesToGreenUp;
+    private Queue<GameObject> planesToGreenDown;
     //private GameObject pouredPlane;
     private float scale;
     private float growthSpeed;
+    Color dryColor;
+    Color greenColor;
+    Color wetterColor;
 
     void Start()
     {
@@ -34,7 +38,8 @@ public class PlayerController : MonoBehaviour
         //flowerBeds = new List<GameObject>();
 
         currentPlane = null;
-        pouredPlanes = new Queue<GameObject>();
+        planesToGreenUp = new Queue<GameObject>();
+        planesToGreenDown = new Queue<GameObject>();
         //pouredPlane = null;
 
         //ufoRenderer = this.gameObject.GetComponent<Renderer>();
@@ -47,6 +52,12 @@ public class PlayerController : MonoBehaviour
         scale = 0.1f;
         //growthSpeed = 0.0001f;
         growthSpeed = 0.001f;
+
+        greenColor = new Color(0.2f, 0.3f, 0.1f);
+        wetterColor = new Color(0.2f, 0.2f, 0.2f);
+
+        dryColor = childrenPlanes[0].GetComponent<Renderer>().material.color;
+        //dryColor = new Color(0.393f, 0.137f, 0.041f);
     }
 
     void FixedUpdate()
@@ -138,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
             if (currentPlane != null)
             {
-                pouredPlanes.Enqueue(currentPlane);
+                planesToGreenUp.Enqueue(currentPlane);
                 Invoke("GreenUpPlane", 1.3f);//this will happen after x seconds   
 
             }
@@ -182,17 +193,40 @@ public class PlayerController : MonoBehaviour
 
     private void GreenUpPlane()
     {
-        var planeMaterial = pouredPlanes.Dequeue().GetComponent<Renderer>().material;
+        var plane = planesToGreenUp.Dequeue();
+        var planeMaterial = plane.GetComponent<Renderer>().material;
         var prevColor = planeMaterial.color;
 
-        if (prevColor.g < 255f && prevColor.r > 0f && prevColor.b > 0f)
+        if (prevColor.Equals(dryColor))
         {
-            var newColor = new Color(prevColor.r - 0.05f, prevColor.b - 0.05f, prevColor.g + 0.2f);
-
-            planeMaterial.SetColor("_Color", newColor);
+            planeMaterial.SetColor("_Color", greenColor);
         }
+        //else if (prevColor.Equals(wetColor))
+        //{
+        //    planeMaterial.SetColor("_Color", wetterColor);
+        //}
 
-        //material.color = newColor(255f, 255f, 255f, 1);
-        //pouredPlanes.Dequeue().SetActive(false);       
+        planesToGreenDown.Enqueue(plane);
+        Invoke("GreenDownPlane", 30f);//this will happen after x seconds         
+    }
+
+    private void GreenDownPlane()
+    {
+        var plane = planesToGreenDown.Dequeue();
+        var planeMaterial = plane.GetComponent<Renderer>().material;
+        var prevColor = planeMaterial.color;
+
+        if (prevColor.Equals(greenColor))
+        {
+            planeMaterial.SetColor("_Color", dryColor);            
+        }
+        //else if (prevColor.Equals(wetterColor))
+        //{
+        //    planeMaterial.SetColor("_Color", wetColor);            
+        //}
+
+        //planesToGreenDown.Enqueue(plane);
+        //Invoke("GreenDownPlane", 5f);//this will happen after x seconds 
+        
     }
 }
