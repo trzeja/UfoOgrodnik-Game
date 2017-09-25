@@ -67,12 +67,9 @@ public class PlayerController : MonoBehaviour
         Rotate();
         HandleSpecialKeys();
         UpdateShader();
-        ResizePlants();
-
-        if (this.drops.Count > 0)
-        {
-            this.DropCollider();
-        }
+        ResizePlants();      
+        DropCollider();
+      
     }
 
     private void AddForce()
@@ -182,18 +179,21 @@ public class PlayerController : MonoBehaviour
 
     private void DropCollider()
     {
-        for (int i = this.drops.Count; i != 0; i--)
+        if (this.drops.Count > 0)
         {
-            if (this.drops[i - 1].transform.position.y < 0)
+            for (int i = this.drops.Count; i != 0; i--)
             {
-                var tempDropHandle = this.drops[i - 1];
-                this.drops.Remove(this.drops[i - 1]);
-                if (tempDropHandle != null)
+                if (this.drops[i - 1].transform.position.y < 0)
                 {
-                    Destroy(tempDropHandle);
+                    var tempDropHandle = this.drops[i - 1];
+                    this.drops.Remove(this.drops[i - 1]);
+                    if (tempDropHandle != null)
+                    {
+                        Destroy(tempDropHandle);
+                    }
                 }
             }
-        }
+        }          
     }
 
     private void GreenUpPlane()
